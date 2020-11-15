@@ -1,11 +1,24 @@
-provider "aws" {
-  version = "2.33.0"
+# provider "aws" {
+#   version = "2.33.0"
 
-  region = var.aws_region
+#   region = var.aws_region
+# }
+
+# provider "random" {
+#   version = "2.2"
+# }
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
 }
 
-provider "random" {
-  version = "2.2"
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
 }
 
 resource "random_pet" "table_name" {}
@@ -22,3 +35,5 @@ resource "aws_dynamodb_table" "tfc_example_table" {
     type = "S"
   }
 }
+}
+
