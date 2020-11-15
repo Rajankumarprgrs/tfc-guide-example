@@ -35,5 +35,5 @@ resource "aws_dynamodb_table" "tfc_example_table" {
     type = "S"
   }
 }
-}
+
 
